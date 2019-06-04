@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TeacherController!
+{% endblock %}
+
+{% block body %}
+
+    <table class="table table-hover" style="width: 50%; margin: 50px auto;">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Matière</th>
+                <th scope="col"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for teachers in teacher %}
+
+                <tr class="table-active">
+                    <th>{{ teachers.id }}</th>
+                    <th>{{ teachers.firstName }}</th>
+                    <th>{{ teachers.lastName }}</th>
+                    <th>{{ teachers.subject }}</th>
+                    <th>
+                        <a href="{{ path('teacherDetail', { 'id': teachers.id }) }}">
+                            <span class="badge badge-info">Voir le fiche du professeur</span>
+                        </a>
+                    </th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
